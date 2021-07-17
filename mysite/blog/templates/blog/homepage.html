@@ -1,0 +1,86 @@
+{%load static %}
+<style>
+img {
+  object-fit: cover;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 10px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 200px;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+
+</style>
+
+
+<div class="header">
+  <h1>Welcome to the food store</h1><h2><a href="{}">Sign Up</a></h2>
+</div>
+
+<div class="topnav">
+  <a href="{% url 'about' %}">About</a>
+  <a href="{% url 'contacts' %}">Contacts</a>
+  <a href="{% url 'news' %}">News</a>
+
+</div>
+
+
+
+<div>
+     {% for check in cheks %}
+
+       <div class="gallery">
+
+           <img src = "{{ check.images.url }}">
+
+          <div class="desc">
+              <a target="_blank" href="{{check.images.url}}"><h2>View</h2></a>
+          </div>
+        </div>
+     {% endfor %}
+</div>
+

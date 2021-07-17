@@ -17,3 +17,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 # Create your models here.
+
+class Photo(models.Model):
+    images = models.ImageField(null=False, blank=False)
