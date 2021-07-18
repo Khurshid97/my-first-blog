@@ -96,8 +96,9 @@ def home(request):
                 new += 'м'
             elif 'n' == q:
                 new += 'н'
-            if 'o' == q:
-                new += 'о'
+            elif 'o' == q:
+                if 'o' not in 'Yo':
+                    new += 'о'
             elif 'p' == q:
                 new += 'п'
             elif 'q' == q:
