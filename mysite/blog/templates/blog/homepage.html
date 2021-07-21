@@ -71,14 +71,14 @@ div.desc {
 
 
 <div>
-     {% for photo in photos %}
+     {% for p in photos %}
 
        <div class="gallery">
 
-           <img src = "{{ photo.images.url }}">
+           <img src = "{{ p.images.url }}">
 
           <div class="desc">
-              <a target="_blank" href="{% url 'view' photo.id %}"><h2>View</h2></a>
+              <a target="_blank" href="{% url 'view' p.id %}"><h2>View</h2></a>
           </div>
         </div>
      {% endfor %}

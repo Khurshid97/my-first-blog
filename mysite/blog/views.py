@@ -29,7 +29,8 @@ def homepage(request):
     }
 
     return render(request, "blog/homepage.html", context)
+
 def viewphoto(request, pk):
     photo = Photo.objects.get(id=pk)
-    return render(request, "blog/view.html", {'photo':photo})
+    return render(request, "blog/view.html", {'photo': photo})
 
