@@ -18,13 +18,23 @@ img {
 }
 
 /* Style the topnav links */
-.topnav a {
+.topnav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   float: left;
-  display: block;
+}
+.topnav li {
+  float: left;
+  display: inline;
+}
+.topnav a {
+  display: inline-block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+
 }
 
 /* Change color on hover */
@@ -32,6 +42,7 @@ img {
   background-color: #ddd;
   color: black;
 }
+
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -52,7 +63,11 @@ div.desc {
   padding: 15px;
   text-align: center;
 }
-
+.wish {
+  text-align: center;
+  padding: 14px 16px;
+  margin: 5px;
+}
 
 </style>
 
@@ -60,15 +75,19 @@ div.desc {
 <div class="header">
   <h1>Welcome to the food store</h1><h2><a href="{}">Sign Up</a></h2>
 </div>
-
 <div class="topnav">
-  <a href="{% url 'about' %}">About</a>
-  <a href="{% url 'contacts' %}">Contacts</a>
-  <a href="{% url 'news' %}">News</a>
+{% for category in categories %}
 
+    <ul>
+    <li>
+        <a href="{% url 'homepage' %}?category={{category.name}}">
+            {{category.name}}
+        </a>
+    </li>
+    </ul>
+
+{% endfor %}
 </div>
-
-
 
 <div>
      {% for p in photos %}
@@ -78,9 +97,17 @@ div.desc {
            <img src = "{{ p.images.url }}">
 
           <div class="desc">
-              <a target="_blank" href="{% url 'view' p.id %}"><h2>View</h2></a>
+              <a target="_blank" href="{% url 'view' p.id %}"><h2>
+                  <div >View</div>
+              </h2></a>
           </div>
         </div>
      {% endfor %}
+</div>
+
+<div class="wish">
+    {% for w in wish %}
+        <h1>{{w.text}}</h1>
+    {% endfor %}
 </div>
 

@@ -23,9 +23,22 @@ def news(request):
     return render(request, "blog/news.html")
 
 def homepage(request):
-    photos = Photo.objects.all()
+    category = request.GET.get('category')
+
+    if category == None:
+        photos = Photo.objects.all()
+        wish = Post.objects.all()
+
+    else:
+        photos = Photo.objects.filter(category__name = category)
+        wish = Post.objects.filter(category__name = category)
+
+    categories = Category.objects.all()
+
     context = {
         'photos':photos,
+        'categories': categories,
+        'wish': wish,
     }
 
     return render(request, "blog/homepage.html", context)

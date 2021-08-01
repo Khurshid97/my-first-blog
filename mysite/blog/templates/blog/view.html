@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Viewphoto</title>
+
+
+<style>
+    .size {
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+</style>
+
 </head>
 <body>
-<img src="{{ photo.images.url }}">
+<img class="size" src="{{ photo.images.url }}">
 </body>
 </html>
